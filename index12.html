@@ -1,0 +1,63 @@
+<!-- API request -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hi</h1>
+    <button id="start">Click</button>
+
+    <div id="profile-info">
+        <img id="avatar" src="" alt="GitHub Profile Picture" width="150" height="150" style="display: none;">
+        <p id="followers"></p>
+    </div>
+</body>
+
+<script>
+    const button = document.querySelector('#start');
+    button.addEventListener('click', function() {
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl);
+        xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4) {
+            console.log(this.responseText);
+            const data = JSON.parse(this.responseText);
+            console.log(typeof data);
+            // console.log(data.avatar_url);
+            const profilePic = document.getElementById('avatar');
+            profilePic.src = data.avatar_url;
+            profilePic.style.display = "block";
+            // console.log(data.followers);
+            const followersText = document.getElementById('followers');
+            followersText.textContent = `Followers: ${data.followers}`;
+        }
+    }
+    // console.log(xhr.readyState);
+
+    xhr.send();
+    })
+
+    // const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET', requestUrl);
+    // xhr.onreadystatechange = function() {
+    //     console.log(xhr.readyState);
+    //     if(xhr.readyState === 4) {
+    //         console.log(this.responseText);
+    //         const data = JSON.parse(this.responseText);
+    //         console.log(typeof data);
+    //         console.log(data.avatar_url);
+    //         console.log(data.followers);
+    //     }
+    // }
+    // // console.log(xhr.readyState);
+
+    // xhr.send();
+</script>
+</html>

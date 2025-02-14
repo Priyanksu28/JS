@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>JS</li>
+    </ul>
+</body>
+
+<script>
+    // Basic Method
+
+    // function addlang(lang) {
+    //     const listitem = document.createElement('li');
+    //     listitem.innerText = `${lang}`;
+    //     document.querySelector('.language').appendChild(listitem);
+    // }
+    // addlang("python");
+    // addlang("C++");
+    // addlang("C");
+
+
+    //Optimised Method
+
+    function addlang(lang) {
+        const listitem = document.createElement('li');
+        const text = document.createTextNode(lang);
+        listitem.appendChild(text);
+        document.querySelector('.language').appendChild(listitem);
+    }
+    addlang("Ruby");
+    addlang("React JS");
+    addlang("Express JS");
+
+
+    // Edit
+
+    const secondLang = document.querySelector("li:nth-child(2)");
+    const listitem = document.createElement('li');
+    const newtext = document.createTextNode("Mongo DB");
+    listitem.appendChild(newtext);
+    secondLang.replaceWith(listitem);
+
+
+    // Remove
+
+    const lastlang = document.querySelector("li:last-child");
+    lastlang.remove( );
+</script>
+</html>

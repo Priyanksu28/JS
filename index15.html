@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hiiiii
+</body>
+
+<script>
+
+    // let animal = {
+    //     eats: true
+    // };
+    // let rabbit = {
+    //     jumps: true
+    // };
+
+    // rabbit.__proto__ = animal; //sets rabbit.[[Prototype] = animal
+
+    // This is a parent class that defines common properties and methods for all animals.
+    class Animal {                 // Moi eata class bonaisu animal jate moi as many number of animals moi create koribo paru
+        constructor(name) {
+            this.name = name
+            // console.log("Object is created");    //This constructor will run whenever I will make an object
+        }
+
+        eats() {
+            console.log("I am eating")
+        }
+
+        jumps() {
+            console.log("I am jumping");
+            
+        }
+    }
+
+    // Breakdown:
+    // 1. The Animal class has a constructor that takes name as a parameter and assigns it to the this.name property.
+    // 2. Inside the constructor, console.log("Object is created") runs whenever a new Animal object is created.
+    // 3. The class has two methods:
+    //     eats(): Prints "I am eating".
+    //     jumps(): Prints "I am jumping".
+
+
+    // The Lion class inherits from Animal using the extends keyword.
+    class Lion extends Animal{
+        constructor(name) {
+            super(name);
+            // this.name = name
+            console.log("Object lion is created");
+            // console.log(this);
+                
+        }
+
+        eats() {
+            super.eats();
+            console.log("I am eating and roaring")
+            console.log(this);
+            
+        }
+    }
+
+    // Breakdown:
+    // 1. The Lion class extends Animal, meaning it inherits all properties and methods from Animal.
+    // 2. The constructor(name) is defined in Lion, but it calls super(name), which:
+    //     Calls the constructor of Animal, initializing this.name and printing "Object is created".
+    // 3. After calling super(name), it prints "Object lion is created".
+
+
+    let a = new Animal("Bunny");
+    console.log(a);
+
+    let l = new Lion("Shera");
+    console.log(l);
+    
+
+
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing Photos</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="aaa" src="https://logos-world.net/wp-content/uploads/2022/05/Google-Photos-Logo.png" alt="image1"></li>
+            <li><img width="200px" id="bbb" src="https://logos-world.net/wp-content/uploads/2022/05/Google-Photos-Logo.png" alt="image2"></li>
+            <li><img width="200px" id="ccc" src="https://logos-world.net/wp-content/uploads/2022/05/Google-Photos-Logo.png" alt="image3"></li>
+            <li><img width="200px" id="ddd" src="https://logos-world.net/wp-content/uploads/2022/05/Google-Photos-Logo.png" alt="image4"></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    // document.getElementById('aaa').onclick = function() {
+    //     alert("Google Photos");           //This approach of using onclick with id is not good because it doesnot give extra
+                                             //features or info 
+    // }
+
+
+    // Instade of that we use event listeners which gives onclick functionalities and propogation abilities
+
+    // document.getElementById('aaa').addEventListener('click', function() {
+    //     alert('Again Google Photos');
+    // })
+
+
+    // Event Propagation
+
+
+    // // 1. Bubbling Mode event propagation -> Bottom to Top
+    // document.getElementById('images').addEventListener('click', function() {
+    //     console.log("Google Photos");
+    // }, false)
+
+    // document.getElementById('aaa').addEventListener('click', function() {
+    //     console.log("Again Google Photos");
+    // }, false)
+    
+    // // 2. Capturing Mode event propagation -> Top to Bottom
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("Google Photos");
+    // }, true)
+
+    // document.getElementById('aaa').addEventListener('click', function(e) {
+    //     console.log("Again Google Photos");
+    // }, true)
+
+    // // 3. stopPropagation -> stopPropagation() method of the Event interface prevents further propagation of the current event in the capturing and bubbling phases
+    // document.getElementById('images').addEventListener('click', function(e) {
+    //     console.log("Google Photos");
+    // }, false)
+
+    // document.getElementById('aaa').addEventListener('click', function(e) {
+    //     console.log("Again Google Photos");
+    //     e.stopPropagation();
+    // }, false)
+
+
+
+    document.querySelector('#images').addEventListener('click', function(e) {
+        // console.log(e);
+        // console.log(e.target.parentNode); -> return the parent node. For eg, if we click in img then it will give li
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeit = e.target.parentNode;
+            removeit.remove();
+        } 
+    })
+
+
+
+
+
+
+</script>
+</html>
