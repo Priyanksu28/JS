@@ -1,0 +1,35 @@
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: gilroy;
+}
+
+html,
+
+body {
+ height: 100%;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+#box {
+ /* background-color: teal; */
+ border: 2px solid black;
+ border-radius: 10px;
+ text-align: center;
+ padding: 20px 40px;
+}
+
+h3 {
+    color: red;
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 15px;
+    margin-top: 15px;
+}
